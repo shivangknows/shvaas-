@@ -1,0 +1,390 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  background: #c8f5c8;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 40px;
+  background: #d4f5d4;
+  min-height: 100vh;
+  border-radius: 24px;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0b3c5d;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-icon {
+  font-size: 24px;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-buttons button {
+  padding: 8px 20px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-family: inherit;
+  font-weight: 500;
+}
+
+.login-btn {
+  background: transparent;
+  color: #0b3c5d;
+}
+
+.login-btn:hover {
+  background: rgba(11, 60, 93, 0.08);
+}
+
+.register-btn {
+  background: #b2f2bb;
+  color: #0b3c5d;
+  border: 1.5px solid #8ee3a0 !important;
+}
+
+.register-btn:hover {
+  background: #9ee8aa;
+}
+
+/* Main Hero Section */
+.main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  gap: 20px;
+}
+
+.left {
+  max-width: 460px;
+}
+
+.title {
+  font-size: 46px;
+  color: #0b3c5d;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.subtitle {
+  font-size: 18px;
+  margin-top: 12px;
+  color: #2f4f4f;
+  line-height: 1.5;
+  max-width: 320px;
+}
+
+.btn {
+  margin-top: 24px;
+  padding: 16px 48px;
+  background: #0b3c5d;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: block;
+  width: 100%;
+  max-width: 320px;
+}
+
+.btn:hover {
+  background: #0d4e7a;
+}
+
+.right img {
+  width: 320px;
+  height: auto;
+  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.10));
+}
+
+/* Thoughts Section */
+.thoughts-section {
+  margin-top: 48px;
+}
+
+.thoughts-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0b3c5d;
+  margin-bottom: 16px;
+}
+
+/* Post Box */
+.post-box {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  padding: 6px 8px 6px 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.post-box input {
+  flex: 1;
+  padding: 12px 0;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  font-family: inherit;
+  background: transparent;
+  color: #333;
+}
+
+.post-box input::placeholder {
+  color: #aaa;
+}
+
+.post-box button {
+  padding: 12px 24px;
+  background: #0b3c5d;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.post-box button:hover {
+  background: #0d4e7a;
+}
+
+/* Posts Feed */
+.posts-feed {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.post-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 14px;
+  padding: 16px 18px;
+}
+
+.post-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #b2f2bb;
+  flex-shrink: 0;
+}
+
+.post-content {
+  flex: 1;
+}
+
+.post-name {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 2px;
+}
+
+.post-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0b3c5d;
+  margin-bottom: 2px;
+}
+
+.post-body {
+  font-size: 14px;
+  color: #2f4f4f;
+}
+/* ===== AUTH PAGES ===== */
+.auth-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #c9f7c9, #e6ffe6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.auth-card {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+.auth-logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0b3c5d;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.auth-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0b3c5d;
+  margin: 0 0 8px 0;
+  text-align: center;
+}
+
+.auth-subtitle {
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.auth-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.auth-field label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0b3c5d;
+}
+
+.auth-field input {
+  padding: 12px 16px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.auth-field input:focus {
+  border-color: #0b3c5d;
+}
+
+.auth-forgot {
+  text-align: right;
+  margin-top: -8px;
+}
+
+.auth-forgot a {
+  font-size: 13px;
+  color: #0b3c5d;
+  text-decoration: none;
+}
+
+.auth-btn {
+  padding: 14px;
+  background: #0b3c5d;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s;
+  width: 100%;
+}
+
+.auth-btn:hover {
+  background: #0d4e7a;
+}
+
+.auth-btn:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+
+.auth-btn-outline {
+  padding: 14px;
+  background: transparent;
+  color: #0b3c5d;
+  border: 2px solid #0b3c5d;
+  border-radius: 12px;
+  font-size: 16px;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+  transition: all 0.2s;
+}
+
+.auth-btn-outline:hover {
+  background: #0b3c5d;
+  color: white;
+}
+
+.auth-error {
+  background: #ffe0e0;
+  color: #c0392b;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.auth-success {
+  background: #e0ffe0;
+  color: #27ae60;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.auth-switch {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+.auth-switch a {
+  color: #0b3c5d;
+  font-weight: 600;
+  text-decoration: none;
+}
