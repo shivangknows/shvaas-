@@ -3,8 +3,8 @@
  import { createUserWithEmailAndPassword, sendEmailVerification, updateProfile, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
  import { doc, setDoc } from "firebase/firestore";
  import { useNavigate, Link } from "react-router-dom";
- import { doc, setDoc, getDocs, collection, updateDoc } from "firebase/firestore";
- 
+  
+
  const Register = () => {
    const navigate = useNavigate();
    const [step, setStep] = useState(1);
@@ -55,20 +55,7 @@
      setError("Verification email resent! Check your inbox.");
    };
 
-   const fixExistingUsers = async () => {
-  const { collection, getDocs, updateDoc, doc } = await import("firebase/firestore");
-  const snapshot = await getDocs(collection(db, "users"));
-  snapshot.forEach(async (userDoc) => {
-    const data = userDoc.data();
-    const name = data.username || data.displayName || "";
-    await updateDoc(doc(db, "users", userDoc.id), {
-      displayName: name,
-      displayNameLower: name.toLowerCase(),
-    });
-  });
-  alert("Done! All users updated.");
-};
- 
+    
    return (
      <div style={styles.page}>
        {/* Top Nav */}
