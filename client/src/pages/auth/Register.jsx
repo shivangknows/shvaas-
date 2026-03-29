@@ -3,6 +3,7 @@
  import { createUserWithEmailAndPassword, sendEmailVerification, updateProfile, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
  import { doc, setDoc } from "firebase/firestore";
  import { useNavigate, Link } from "react-router-dom";
+ import { doc, setDoc, getDocs, collection, updateDoc } from "firebase/firestore";
  
  const Register = () => {
    const navigate = useNavigate();
