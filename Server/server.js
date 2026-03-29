@@ -43,4 +43,11 @@ app.post("/api/chat", async (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
+// Keep server awake — ping every 14 minutes
+const https = require("https");
+setInterval(() => {
+  https.get("https://shvaas-backend.onrender.com", (res) => {
+    console.log("Keep alive ping:", res.statusCode);
+  }).on("error", (e) => console.log("Ping error:", e.message));
+}, 14 * 60 * 1000);
 app.listen(PORT, () => console.log(`✅ Shvaas backend running on port ${PORT}`));
