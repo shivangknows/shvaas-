@@ -25,7 +25,7 @@
        const user = userCredential.user;
        await updateProfile(user, { displayName: formData.username });
        await sendEmailVerification(user);
-       await setDoc(doc(db, "users", user.uid), { uid: user.uid, username: formData.username, email: formData.email, bio: "", followers: [], following: [], profilePic: "", createdAt: new Date() });
+       await setDoc(doc(db, "users", user.uid), { uid: user.uid, username: formData.username,displayName: formData.username, displayNameLower: formData.username.toLowerCase(), email: formData.email, bio: "", followers: [], following: [], profilePic: "", createdAt: new Date() });
        setStep(2);
      } catch (err) {
        if (err.code === "auth/email-already-in-use") setError("This email is already registered.");
@@ -53,6 +53,20 @@
      await sendEmailVerification(auth.currentUser);
      setError("Verification email resent! Check your inbox.");
    };
+
+   const fixExistingUsers = async () => {
+  const { collection, getDocs, updateDoc, doc } = await import("firebase/firestore");
+  const snapshot = await getDocs(collection(db, "users"));
+  snapshot.forEach(async (userDoc) => {
+    const data = userDoc.data();
+    const name = data.username || data.displayName || "";
+    await updateDoc(doc(db, "users", userDoc.id), {
+      displayName: name,
+      displayNameLower: name.toLowerCase(),
+    });
+  });
+  alert("Done! All users updated.");
+};
  
    return (
      <div style={styles.page}>

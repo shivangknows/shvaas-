@@ -93,6 +93,13 @@
              <button className="google-btn" onClick={resendEmail}>
                Resend Verification Email
              </button>
+
+             <button 
+              style={{ ...styles.googleBtn, marginTop: 12, background: "#fff3cd" }} 
+              onClick={fixExistingUsers}
+              >
+                Fix Existing Users (run once)
+                </button>
            </div>
  
            <p
