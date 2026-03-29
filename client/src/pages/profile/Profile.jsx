@@ -88,7 +88,9 @@
    useEffect(() => {
      if (!uid) return;
      const q = query(collection(db, "studio_posts"), where("authorId", "==", uid), orderBy("createdAt", "desc"));
-     return onSnapshot(q, (snap) => setMyPosts(snap.docs.map((d) => ({ id: d.id, ...d.data() }))));
+    return onSnapshot(q, (snap) => { console.log("📦 Studio posts found:", snap.docs.length);
+    snap.docs.forEach(d => console.log("Post:", d.data())); setMyPosts(snap.docs.map((d) => ({ id: d.id, ...d.data() })));
+   });
    }, [uid]);
  
    // ── Load conversations ──
