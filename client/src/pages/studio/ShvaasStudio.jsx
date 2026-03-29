@@ -352,7 +352,12 @@ const ShvaasStudio = () => {
                 <div className="post-modal-author">
                   <div className="modal-avatar"><img src={selectedPost.authorAvatar} alt={selectedPost.authorName} /></div>
                   <div>
-                    <div className="modal-author-name">{selectedPost.authorName}</div>
+                    <div className="modal-author-name"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => navigate(`/user/${selectedPost.authorId}`)}
+                    >
+                      {selectedPost.authorName}
+                      </div>
                     <div className="modal-time">{formatTime(selectedPost.createdAt)}</div>
                   </div>
                 </div>

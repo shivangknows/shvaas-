@@ -489,7 +489,11 @@ const PondOfThoughts = () => {
                     <img src={thought.authorAvatar} alt={thought.authorName} />
                   </div>
                   <div>
-                    <div className="post-author-name">{thought.authorName}</div>
+                    <div className="post-author-name" style={{ cursor: "pointer" }}
+                         onClick={() => navigate(`/user/${thought.authorId}`)}
+                        >
+                        {thought.authorName}
+                        </div>
                     <div className="post-time">{formatTime(thought.createdAt)}</div>
                   </div>
                 </div>

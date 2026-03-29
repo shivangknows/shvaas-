@@ -552,7 +552,7 @@
                {(profile?.followers || []).length === 0
                  ? <p style={{ color: "#7a8a7a", fontSize: "0.875rem" }}>No followers yet.</p>
                  : (profile.followers).map((fuid) => (
-                   <div className="user-item" key={fuid}>
+                   <div className="user-item" key={fuid} style={{ cursor: "pointer" }} onClick={() => navigate(`/user/${fuid}`)}>
                      <div className="user-avatar-sm"><img src={`https://api.dicebear.com/7.x/personas/svg?seed=${fuid}`} alt="user" /></div>
                      <div className="user-item-name">@{fuid}</div>
                    </div>

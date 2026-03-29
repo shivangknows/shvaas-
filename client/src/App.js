@@ -15,6 +15,7 @@ import GetStarted from "./pages/GetStarted";
 import ShvaasBot from "./pages/chatbot/ShvaasBot";
 import Profile from "./pages/profile/Profile";
 import ProtectedRoute from "./components/ProtectedRoute";
+import OtherProfile from "./pages/profile/OtherProfile";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -47,6 +48,7 @@ function App() {
       <Route path="/bot" element={<ProtectedRoute user={user}><ShvaasBot /></ProtectedRoute>} />
       <Route path="/profile" element={<ProtectedRoute user={user}><Profile /></ProtectedRoute>} />
       <Route path="/get-started" element={<ProtectedRoute user={user}><GetStarted /></ProtectedRoute>} />
+      <Route path="/user/:uid" element={<ProtectedRoute user={user}><OtherProfile /></ProtectedRoute>} />
     </Routes>
   );
 }
