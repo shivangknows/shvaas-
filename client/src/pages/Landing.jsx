@@ -1,7 +1,5 @@
  import React, { useState } from "react";
  import Navbar from "../components/Navbar";
- import { useNavigate } from "react-router-dom";
- import "../styles/main.css";
  
  const initialPosts = [
    {

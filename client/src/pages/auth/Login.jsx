@@ -1,10 +1,11 @@
  import React, { useState } from "react";
- import { auth } from "../../firebase/config";
+ import { auth, db } from "../../firebase/config";
  import {
    signInWithEmailAndPassword,
    GoogleAuthProvider,
    signInWithPopup,
  } from "firebase/auth";
+ import { collection, query, where, getDocs } from "firebase/firestore";
  import { useNavigate, Link } from "react-router-dom";
  
  const Login = () => {
@@ -18,21 +19,62 @@
      setFormData({ ...formData, [e.target.name]: e.target.value });
    };
  
+   // ── Resolve email from username if needed ──
+   const resolveEmail = async (input) => {
+     // If it looks like an email, use it directly
+     if (input.includes("@")) return input;
+ 
+     // Otherwise look up username in Firestore users collection
+     try {
+       const q = query(collection(db, "users"), where("username", "==", input));
+       const snap = await getDocs(q);
+       if (!snap.empty) {
+         const userData = snap.docs[0].data();
+         // Return email from user doc or from Firebase Auth via uid
+         if (userData.email) return userData.email;
+       }
+     } catch (e) {
+       console.error("Username lookup error:", e);
+     }
+     return null;
+   };
+ 
    const handleLogin = async (e) => {
      e.preventDefault();
      setError("");
      setLoading(true);
+ 
      try {
-       const userCredential = await signInWithEmailAndPassword(auth, formData.email, formData.password);
+       let emailToUse = formData.email.trim();
+ 
+       // If username entered, resolve to email
+       if (!emailToUse.includes("@")) {
+         const resolved = await resolveEmail(emailToUse);
+         if (!resolved) {
+           setError("Username not found. Try using your email instead.");
+           setLoading(false);
+           return;
+         }
+         emailToUse = resolved;
+       }
+ 
+       const userCredential = await signInWithEmailAndPassword(auth, emailToUse, formData.password);
+ 
        if (!userCredential.user.emailVerified) {
          setError("Please verify your email before logging in.");
          setLoading(false);
          return;
        }
+ 
        navigate("/home");
      } catch (err) {
-       if (err.code === "auth/user-not-found" || err.code === "auth/invalid-credential" || err.code === "auth/wrong-password") {
-         setError("Invalid email or password.");
+       if (
+         err.code === "auth/user-not-found" ||
+         err.code === "auth/invalid-credential" ||
+         err.code === "auth/wrong-password" ||
+         err.code === "auth/invalid-email"
+       ) {
+         setError("Invalid email/username or password.");
        } else {
          setError(err.message);
        }
@@ -41,11 +83,13 @@
    };
  
    const handleGoogle = async () => {
+     setError("");
      try {
        const provider = new GoogleAuthProvider();
        await signInWithPopup(auth, provider);
        navigate("/home");
      } catch (err) {
+       if (err.code === "auth/popup-closed-by-user") return;
        setError(err.message);
      }
    };
@@ -77,7 +121,15 @@
                  <label style={styles.label}>Email or Username</label>
                  <div style={styles.inputWrapper}>
                    <span style={styles.inputIcon}>@</span>
-                   <input style={styles.input} type="text" name="email" placeholder="hello@shwaas.com" value={formData.email} onChange={handleChange} required />
+                   <input
+                     style={styles.input}
+                     type="text"
+                     name="email"
+                     placeholder="hello@shvaas.com or username"
+                     value={formData.email}
+                     onChange={handleChange}
+                     required
+                   />
                  </div>
                </div>
  
@@ -88,8 +140,18 @@
                  </div>
                  <div style={styles.inputWrapper}>
                    <span style={styles.inputIcon}>🔒</span>
-                   <input style={{ ...styles.input, paddingRight: 48 }} type={showPassword ? "text" : "password"} name="password" placeholder="••••••••" value={formData.password} onChange={handleChange} required />
-                   <button type="button" style={styles.eyeBtn} onClick={() => setShowPassword(!showPassword)}>{showPassword ? "🙈" : "👁️"}</button>
+                   <input
+                     style={{ ...styles.input, paddingRight: 48 }}
+                     type={showPassword ? "text" : "password"}
+                     name="password"
+                     placeholder="••••••••"
+                     value={formData.password}
+                     onChange={handleChange}
+                     required
+                   />
+                   <button type="button" style={styles.eyeBtn} onClick={() => setShowPassword(!showPassword)}>
+                     {showPassword ? "🙈" : "👁️"}
+                   </button>
                  </div>
                </div>
  
@@ -98,7 +160,9 @@
                  <label htmlFor="remember" style={styles.checkLabel}>Stay signed in</label>
                </div>
  
-               <button type="submit" style={styles.primaryBtn} disabled={loading}>{loading ? "Signing in..." : "Sign In →"}</button>
+               <button type="submit" style={styles.primaryBtn} disabled={loading}>
+                 {loading ? "Signing in..." : "Sign In →"}
+               </button>
  
                <div style={styles.divider}>
                  <div style={styles.dividerLine} />

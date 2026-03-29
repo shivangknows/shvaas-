@@ -38,8 +38,6 @@
    // Followers/Following modals
    const [showFollowers, setShowFollowers] = useState(false);
    const [showFollowing, setShowFollowing] = useState(false);
-   const [followerProfiles, setFollowerProfiles] = useState([]);
-   const [followingProfiles, setFollowingProfiles] = useState([]);
  
    // DM state
    const [showDMs, setShowDMs] = useState(false);
