@@ -1,0 +1,469 @@
+/* ============================================
+   SHVAAS — GLOBAL MOBILE RESPONSIVE STYLES
+   Add this import to your index.css or App.js
+   ============================================ */
+
+/* Base mobile improvements */
+* {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* ── LANDING PAGE ── */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .navbar {
+    padding: 12px 16px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .nav-buttons {
+    gap: 8px;
+  }
+
+  .main {
+    flex-direction: column;
+    padding: 100px 16px 40px;
+    gap: 24px;
+    text-align: center;
+  }
+
+  .right img {
+    width: 200px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .title {
+    font-size: 2rem !important;
+  }
+
+  .subtitle {
+    font-size: 1rem !important;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 14px !important;
+  }
+
+  .thoughts-section {
+    padding: 24px 16px;
+  }
+
+  .post-box {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .post-box input {
+    width: 100%;
+  }
+
+  .post-box button {
+    width: 100%;
+  }
+}
+
+/* ── AUTH PAGES (Login / Register) ── */
+@media (max-width: 768px) {
+  /* Login card — hide left side, show only right */
+  .card {
+    grid-template-columns: 1fr !important;
+    border-radius: 24px !important;
+    max-width: 100% !important;
+  }
+
+  /* Hide the decorative left panel on mobile */
+  .card > section:first-child {
+    display: none !important;
+  }
+
+  .rightSide, [class*="rightSide"] {
+    padding: 32px 24px !important;
+  }
+}
+
+/* ── HOME PAGE ── */
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .left, .right {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ── GET STARTED PAGE ── */
+@media (max-width: 768px) {
+  .gs-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .gs-hero h1 {
+    font-size: 2.2rem !important;
+  }
+
+  .gs-main {
+    padding-top: 100px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .gs-nav {
+    padding: 12px 16px !important;
+  }
+
+  .right-col {
+    gap: 16px !important;
+  }
+}
+
+/* ── EXPLORE PAGE ── */
+@media (max-width: 768px) {
+  .exp-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .exp-hero h1 {
+    font-size: 2.5rem !important;
+  }
+
+  .exp-nav-inner {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .exp-nav-actions {
+    gap: 6px;
+  }
+
+  .exp-main {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .studio-body {
+    padding: 24px 20px 28px !important;
+  }
+
+  .studio-btn, .pond-btn {
+    padding: 14px 20px !important;
+    font-size: 0.9rem !important;
+  }
+}
+
+/* ── POND OF THOUGHTS ── */
+@media (max-width: 768px) {
+  .pot-main {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .pot-hero h1 {
+    font-size: 1.8rem !important;
+  }
+
+  .thought-card {
+    padding: 20px !important;
+  }
+
+  .post-text {
+    font-size: 1rem !important;
+  }
+
+  .input-bar {
+    padding: 10px 12px 20px !important;
+  }
+
+  .input-pill {
+    padding: 6px 6px 6px 14px !important;
+  }
+
+  .post-btn {
+    padding: 10px 18px !important;
+    font-size: 0.82rem !important;
+  }
+
+  .pot-nav {
+    padding: 12px 16px !important;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .pot-nav-btns {
+    gap: 6px;
+  }
+
+  .nav-btn {
+    padding: 6px 12px !important;
+    font-size: 0.78rem !important;
+  }
+}
+
+/* ── SHVAAS STUDIO ── */
+@media (max-width: 768px) {
+  .st-nav {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px 16px !important;
+  }
+
+  .st-search-wrap {
+    order: 3;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .st-grid {
+    columns: 2 !important;
+    padding: 10px 12px !important;
+  }
+
+  .chips-wrap {
+    padding: 12px 12px 6px !important;
+  }
+
+  .upload-modal {
+    padding: 20px 16px !important;
+    border-radius: 1.5rem !important;
+  }
+
+  .post-modal {
+    border-radius: 1.5rem !important;
+    max-height: 95vh !important;
+  }
+
+  .post-modal-media {
+    max-height: 280px !important;
+  }
+}
+
+/* ── SHVAAS BOT ── */
+@media (max-width: 768px) {
+  .bot-nav {
+    padding: 12px 16px !important;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .bot-nav-right {
+    gap: 6px !important;
+  }
+
+  .nav-btn {
+    padding: 6px 12px !important;
+    font-size: 0.78rem !important;
+  }
+
+  .chat-area {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  .bubble-ai, .bubble-user {
+    padding: 14px 18px !important;
+    font-size: 0.95rem !important;
+    max-width: 92% !important;
+  }
+
+  .input-bar {
+    padding: 10px 12px 20px !important;
+  }
+
+  /* Hide floating stickers on mobile — they clutter small screens */
+  .stickers {
+    display: none !important;
+  }
+}
+
+/* ── PROFILE PAGE ── */
+@media (max-width: 768px) {
+  .pf-nav {
+    padding: 12px 16px !important;
+  }
+
+  .pf-hero {
+    padding: 24px 16px 0 !important;
+    flex-direction: column-reverse !important;
+    gap: 20px !important;
+  }
+
+  .pf-right {
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+  }
+
+  .pf-avatar {
+    width: 80px !important;
+    height: 80px !important;
+  }
+
+  .pf-username {
+    font-size: 1.5rem !important;
+  }
+
+  .pf-tabs {
+    padding: 20px 16px 0 !important;
+    gap: 6px !important;
+  }
+
+  .pf-tab {
+    padding: 8px 16px !important;
+    font-size: 0.82rem !important;
+  }
+
+  .pf-content {
+    padding: 16px 16px 60px !important;
+  }
+
+  .thought-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .edit-panel {
+    margin: 16px 16px 0 !important;
+  }
+
+  /* DM panel full width on mobile */
+  .dm-panel {
+    width: 100% !important;
+    right: 0 !important;
+  }
+
+  .pf-actions {
+    flex-wrap: wrap;
+  }
+
+  .pf-btn, .pf-edit-btn {
+    flex: 1 !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
+}
+
+/* ── OTHER PROFILE PAGE ── */
+@media (max-width: 768px) {
+  .op-hero {
+    padding: 24px 16px 0 !important;
+    flex-direction: column-reverse !important;
+    gap: 20px !important;
+  }
+
+  .op-right {
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+  }
+
+  .op-avatar {
+    width: 80px !important;
+    height: 80px !important;
+  }
+
+  .op-username {
+    font-size: 1.5rem !important;
+  }
+
+  .op-tabs {
+    padding: 20px 16px 0 !important;
+    gap: 6px !important;
+  }
+
+  .op-tab {
+    padding: 8px 16px !important;
+    font-size: 0.82rem !important;
+  }
+
+  .op-content {
+    padding: 16px 16px 60px !important;
+  }
+
+  /* Chat panel full width on mobile */
+  .chat-panel {
+    width: 100% !important;
+    right: 0 !important;
+    left: 0 !important;
+  }
+
+  .op-actions {
+    flex-wrap: wrap;
+  }
+
+  .follow-btn, .msg-btn {
+    flex: 1 !important;
+    text-align: center !important;
+  }
+}
+
+/* ── GENERAL TOUCH IMPROVEMENTS ── */
+@media (max-width: 768px) {
+  /* Bigger touch targets */
+  button {
+    min-height: 40px;
+  }
+
+  /* Better scrolling */
+  .chat-messages,
+  .chat-area,
+  .pot-main,
+  .op-content,
+  .pf-content {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Prevent text from being too small */
+  input, textarea, select {
+    font-size: 16px !important; /* Prevents iOS zoom on focus */
+  }
+
+  /* Modal full screen on mobile */
+  .modal-overlay {
+    padding: 0 !important;
+    align-items: flex-end !important;
+  }
+
+  .upload-modal,
+  .modal-box {
+    border-radius: 1.5rem 1.5rem 0 0 !important;
+    max-height: 90vh !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Sidebar full width on mobile */
+  .sidebar {
+    width: 100% !important;
+  }
+}
+
+/* ── VERY SMALL SCREENS (iPhone SE etc) ── */
+@media (max-width: 380px) {
+  .gs-hero h1 {
+    font-size: 1.8rem !important;
+  }
+
+  .pf-username, .op-username {
+    font-size: 1.3rem !important;
+  }
+
+  .pf-tab, .op-tab {
+    padding: 7px 12px !important;
+    font-size: 0.76rem !important;
+  }
+}
